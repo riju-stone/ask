@@ -1,15 +1,15 @@
 import { app, BrowserWindow, globalShortcut } from "electron";
 import path from "path";
 import { getEnv } from "./utils.js";
-import { registerShortcuts } from "./core/shortcuts.js";
+import { registerShortcuts } from "../core/shortcuts.js";
 
 function createWindow() {
 	const env = getEnv();
 	console.log(env);
 
 	const mainWindow = new BrowserWindow({
-		height: 600,
-		width: 800,
+		height: 800,
+		width: 1024,
 		frame: false,
 		transparent: env == "dev" ? false : true,
 		webPreferences: {
