@@ -2,16 +2,15 @@ import { app, BrowserWindow, globalShortcut } from "electron";
 import path from "path";
 import { getEnv } from "./utils.js";
 import { registerShortcuts } from "../core/shortcuts.js";
+const env = getEnv();
 
 function createWindow() {
-	const env = getEnv();
 	console.log(env);
-
 	const mainWindow = new BrowserWindow({
-		height: 800,
-		width: 1024,
-		frame: false,
-		transparent: env == "dev" ? false : true,
+		height: 600,
+		width: 800,
+		frame: env == "dev" ? true : false,
+		transparent: true,
 		webPreferences: {
 			nodeIntegration: true,
 			contextIsolation: false,
@@ -21,9 +20,13 @@ function createWindow() {
 		type: "toolbar",
 	});
 
-	mainWindow.setContentProtection(true);
-	mainWindow.setVisibleOnAllWorkspaces(true, { visibleOnFullScreen: true });
-	mainWindow.setAlwaysOnTop(true, "screen-saver", 1);
+	if (env !== "dev") {
+		mainWindow.setContentProtection(true);
+		mainWindow.setVisibleOnAllWorkspaces(true, { visibleOnFullScreen: true });
+		mainWindow.setAlwaysOnTop(true, "screen-saver", 1);
+	} else {
+		mainWindow.webContents.openDevTools();
+	}
 
 	registerShortcuts(mainWindow);
 

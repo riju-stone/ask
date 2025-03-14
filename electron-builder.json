@@ -1,15 +1,15 @@
 {
-  "appId": "com.stone.caligator",
-  "icon": "./resources/icon.png",
-  "files": ["dist-electron", "dist-ui"],
-  "mac": {
-    "target": "dmg"
-  },
-  "linux": {
-    "target": "AppImage",
-    "category": "utility"
-  },
-  "win": {
-    "target": ["portable", "msi"]
-  }
+	"appId": "com.stone.ask",
+	"icon": "./resources/icon.png",
+	"files": ["dist-electron", "dist-ui"],
+	"mac": {
+		"target": "dmg"
+	},
+	"linux": {
+		"target": "AppImage",
+		"category": "utility"
+	},
+	"win": {
+		"target": ["portable", "msi"]
+	}
 }
