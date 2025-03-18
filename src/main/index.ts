@@ -7,9 +7,11 @@ const env = getEnv();
 function createWindow() {
 	console.log(env);
 	const mainWindow = new BrowserWindow({
+		title: "Ask",
 		height: 600,
 		width: 800,
 		frame: env == "dev" ? true : false,
+		resizable: false,
 		transparent: true,
 		webPreferences: {
 			nodeIntegration: true,
