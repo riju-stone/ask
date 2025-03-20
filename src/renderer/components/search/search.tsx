@@ -2,7 +2,7 @@ import { useRef, useState } from "react"
 import styles from "./styles.module.scss"
 import { motion } from "motion/react"
 import { SendHorizonal, File, Brain, Image, Shield, Earth } from "lucide-react"
-import { easeIn, easeInOut } from "motion"
+import { easeIn } from "motion"
 
 const searchBarAnim = {
     initial: {
@@ -33,16 +33,15 @@ const searchBarAnim = {
     }
 }
 
-function SearchComponent()
+function SearchComponent({ searching, setSearching }: { searching: boolean, setSearching: (searching: boolean) => void })
 {
     const searchContainer = useRef(null)
-    const [search, setSearching] = useState(false)
 
     return (
         <motion.div
             ref={searchContainer}
             className={styles.searchWrapper}
-            variants={searchBarAnim} initial="initial" animate={search ? "search" : "show"}>
+            variants={searchBarAnim} initial="initial" animate={searching ? "search" : "show"}>
             <div className={styles.searchContainer}>            <div className={styles.searchInputContainer}>
                 <textarea placeholder="Ask Anything..." className={styles.searchInput} />
             </div>
@@ -54,7 +53,7 @@ function SearchComponent()
                         <button className={styles.searchButton}><File /></button>
                         <button className={styles.searchButton}><Image /></button>
                     </div>
-                    <button className={styles.searchButton} onClick={() => setSearching(!search)}><SendHorizonal /></button>
+                    <button className={styles.searchButton} onClick={() => setSearching(!searching)}><SendHorizonal /></button>
                 </div>
             </div>
 

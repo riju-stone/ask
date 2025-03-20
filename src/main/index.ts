@@ -10,24 +10,28 @@ function createWindow() {
 		title: "Ask",
 		height: 600,
 		width: 800,
-		frame: env == "dev" ? true : false,
+		frame: false,
 		resizable: false,
 		transparent: true,
+		minimizable: false,
+		maximizable: false,
+		fullscreenable: false,
+		hasShadow: false,
 		webPreferences: {
 			nodeIntegration: true,
 			contextIsolation: false,
 		},
-		alwaysOnTop: env == "dev" ? false : true,
+		alwaysOnTop: true,
 		paintWhenInitiallyHidden: true,
 		type: "toolbar",
 	});
 
-	if (env !== "dev") {
-		mainWindow.setContentProtection(true);
-		mainWindow.setVisibleOnAllWorkspaces(true, { visibleOnFullScreen: true });
-		mainWindow.setAlwaysOnTop(true, "screen-saver", 1);
-	} else {
-		mainWindow.webContents.openDevTools();
+	mainWindow.setContentProtection(true);
+	mainWindow.setVisibleOnAllWorkspaces(true, { visibleOnFullScreen: true });
+	mainWindow.setAlwaysOnTop(true, "screen-saver", 1);
+
+	if (process.platform === "darwin") {
+		mainWindow.setVibrancy(null);
 	}
 
 	registerShortcuts(mainWindow);

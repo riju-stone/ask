@@ -9,13 +9,33 @@
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
+	overflow: hidden;
+}
+
+/* Ensure no borders on window */
+html,
+body,
+#root {
+	border: none !important;
+	box-shadow: none !important;
+	background: transparent;
+}
+
+/* Disable any potential focus outlines */
+*:focus {
+	outline: none !important;
+	box-shadow: none !important;
 }
 
 .appWrapper {
+	background: none;
 	height: 100vh;
 	width: 100vw;
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
 	align-items: center;
+	gap: 0.5rem;
+	border: none;
+	outline: none;
 }
