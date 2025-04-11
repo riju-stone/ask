@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { motion } from 'motion/react'
 
 import styles from './styles.module.scss'
@@ -21,8 +21,7 @@ const responseAnim = {
     }
 }
 
-function ResponseComponent({ searching }: { searching: boolean })
-{
+function ResponseComponent({ searching }: { searching: boolean }) {
     return (
         <motion.div
             className={styles.responseWrapper}

@@ -1,8 +1,9 @@
-import { useRef, useState } from "react"
+import { useRef } from "react"
 import styles from "./styles.module.scss"
 import { motion } from "motion/react"
 import { SendHorizonal, File, Brain, Image, Shield, Earth } from "lucide-react"
 import { easeIn } from "motion"
+import ButtonComponent from "../custom/button"
 
 const searchBarAnim = {
     initial: {
@@ -33,8 +34,7 @@ const searchBarAnim = {
     }
 }
 
-function SearchComponent({ searching, setSearching }: { searching: boolean, setSearching: (searching: boolean) => void })
-{
+function SearchComponent({ searching, setSearching }: { searching: boolean, setSearching: (searching: boolean) => void }) {
     const searchContainer = useRef(null)
 
     return (
@@ -47,13 +47,13 @@ function SearchComponent({ searching, setSearching }: { searching: boolean, setS
             </div>
                 <div className={styles.searchActionContainer}>
                     <div>
-                        <button className={styles.searchButton}><Shield /></button>
-                        <button className={styles.searchButton}><Earth /></button>
-                        <button className={styles.searchButton}><Brain /></button>
-                        <button className={styles.searchButton}><File /></button>
-                        <button className={styles.searchButton}><Image /></button>
+                        <ButtonComponent logo={<Shield />} click={() => { }} />
+                        <ButtonComponent logo={<Earth />} click={() => { }} />
+                        <ButtonComponent logo={<Brain />} click={() => { }} />
+                        <ButtonComponent logo={<File />} click={() => { }} />
+                        <ButtonComponent logo={<Image />} click={() => { }} />
                     </div>
-                    <button className={styles.searchButton} onClick={() => setSearching(!searching)}><SendHorizonal /></button>
+                    <ButtonComponent logo={<SendHorizonal />} click={() => setSearching(!searching)} />
                 </div>
             </div>
 
