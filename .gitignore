@@ -10,10 +10,7 @@ lerna-debug.log*
 node_modules
 dist
 dist-ssr
-dist-ui
-dist-electron
 *.local
-tsconfig.tsbuildinfo
 
 # Editor directories and files
 .vscode/*
@@ -25,5 +22,3 @@ tsconfig.tsbuildinfo
 *.njsproj
 *.sln
 *.sw?
-
-.env
