@@ -10,11 +10,17 @@
     "frontendDist": "../dist"
   },
   "app": {
+    "macOSPrivateApi": true,
     "windows": [
       {
         "title": "ask",
+        "transparent": true,
         "width": 800,
-        "height": 600
+        "height": 600,
+        "resizable": false,
+        "skipTaskbar": true,
+        "decorations": false,
+        "contentProtected": true
       }
     ],
     "security": {
@@ -24,6 +30,7 @@
   "bundle": {
     "active": true,
     "targets": "all",
+    "createUpdaterArtifacts": true,
     "icon": [
       "icons/32x32.png",
       "icons/128x128.png",
@@ -31,5 +38,16 @@
       "icons/icon.icns",
       "icons/icon.ico"
     ]
+  },
+  "plugins": {
+    "updater": {
+      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IEE1NTQ1MDYxNTFCNjMxMjYKUldRbU1iWlJZVkJVcFJHT2E0N3FPR2gwbUhKYXJBaFY1UmI3czBCamY4K2VwblBPVnl3VDc1bFkK%",
+      "endpoints": [
+        "https://api.github.com/riju-stone/ask/ask/releases/latest"
+      ],
+      "windows:": {
+        "installMode": "basicUi"
+      }
+    }
   }
 }
