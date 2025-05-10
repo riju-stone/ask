@@ -1,9 +1,10 @@
 import { useRef } from "react"
 import styles from "./styles.module.scss"
 import { motion } from "motion/react"
-import { SendHorizonal, File, Brain, Image, Shield, Earth } from "lucide-react"
+import { SendHorizonal, File, Brain, Image, Earth } from "lucide-react"
 import { easeIn } from "motion"
 import ButtonComponent from "../custom/button"
+import ModelSelectionDropDown from "../model/Model"
 
 const searchBarAnim = {
     initial: {
@@ -47,12 +48,12 @@ function SearchComponent({ searching, setSearching }: { searching: boolean, setS
             </div>
                 <div className={styles.searchActionContainer}>
                     <div>
-                        <ButtonComponent logo={<Shield />} click={() => { }} />
                         <ButtonComponent logo={<Earth />} click={() => { }} />
                         <ButtonComponent logo={<Brain />} click={() => { }} />
                         <ButtonComponent logo={<File />} click={() => { }} />
                         <ButtonComponent logo={<Image />} click={() => { }} />
                     </div>
+                    <ModelSelectionDropDown />
                     <ButtonComponent logo={<SendHorizonal />} click={() => setSearching(!searching)} />
                 </div>
             </div>
